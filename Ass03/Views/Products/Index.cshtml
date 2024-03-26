@@ -1,0 +1,97 @@
+﻿@model IEnumerable<Ass03.Models.Product>
+
+@{
+    ViewData["Title"] = "Products Mangement";
+}
+
+<h1>Products Mangement</h1>
+<form asp-controller="Products" asp-action="Index" class="form-inline">
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm">
+            <p>
+                <a asp-action="Create" class="btn btn-success">Create New</a>
+
+            </p>
+        </div>
+        <div class="col-sm">
+            <input class="form-control mr-sm-2" type="text" name="SearchString" placeholder="Search" aria-label="Search">
+        </div>
+        <div class="col-sm">
+
+          
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            
+        </div>
+    </div>
+</div>
+</form>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UnitStock)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UnitPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ImageUrl)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Category)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.User)
+            </th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UnitStock)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UnitPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+               
+                <img src="/Products/@item.ImageUrl" alt="Image" width="100" height="100">
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category.CategoryName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.User.Username)
+            </td>
+            <td>
+               
+                    <a asp-action="Edit" asp-route-id="@item.ProductId" class="btn btn-primary">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.ProductId" class="btn btn-info">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.ProductId" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

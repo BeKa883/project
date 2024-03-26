@@ -1,0 +1,8 @@
+﻿@if (Context.Session.GetString("role") == "1")
+{
+    Layout = "_LayoutAdmin";
+}
+else
+{
+    Layout = "_Layout";
+}

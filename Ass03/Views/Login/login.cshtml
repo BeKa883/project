@@ -1,0 +1,66 @@
+﻿@model LoginVM
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+      integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+<link rel="stylesheet" href="css/header.css">
+<link rel="stylesheet" href="css/v_css.css">
+<link rel="stylesheet" href="css/footer.css">
+<link rel="stylesheet" href="css/arrival.css">
+<link rel="stylesheet" href="css/elx.css">
+<title>Elite Shoppy</title>
+<div class="container p-5 mt-100 b-100">
+    <div class="card shadow border">
+        <div class="card-header bg-success bg-gradient ml-0 py-4">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h2 class="py-2 text-white">Login</h2>
+                </div>
+            </div>
+        </div>
+        <div class="card-body p-4">
+            <div class="row">
+                <div class="col-md-12">
+                    <section>
+                        <form method="post">
+                            
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <div class="form-floating mb-3">
+                                <input asp-for="Username" class="form-control" aria-required="true" />
+                                <label asp-for="Username" class="form-label"></label>
+                                <span asp-validation-for="Username" class="text-danger"></span>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input asp-for="Password" class="form-control" aria-required="true" />
+                                <label asp-for="Password" class="form-label"></label>
+                                <span asp-validation-for="Password" class="text-danger"></span>
+                            </div>
+                            <div class="checkbox mb-3">
+                                <input class="form-check-input" asp-for="RememberMe" />
+
+                                <label class="form-label">
+                                    Remember Me
+                                </label>
+                            </div>
+                            <div>
+                                <button type="submit" class="w-100 btn btn-lg btn-outline-success">Log in</button>
+                            </div>
+                            <div class="d-flex justify-content-between pt-2">
+                                <p>
+                                    <a asp-action="ForgotPassword">Forgot your password?</a>
+                                </p>
+                                <p>
+                                    <a asp-action="Register">Register as a new user</a>
+                                </p>
+                            </div>
+                        </form>
+                    </section>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

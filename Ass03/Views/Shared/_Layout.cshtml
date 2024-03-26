@@ -1,0 +1,426 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - PROJECTQK</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Ass03.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+          integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/header.css">
+    <link rel="stylesheet" href="~/css/v_css.css">
+    <link rel="stylesheet" href="~/css/footer.css">
+    <link rel="stylesheet" href="~/css/arrival.css">
+    <link rel="stylesheet" href="~/css/elx.css">
+    <title>Elite Shoppy</title>
+</head>
+<body>
+    <header>
+        <nav style="color:black" class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="HomeUser" asp-action="Index">Ass03</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Categories" asp-action="Index">Categories</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Products" asp-action="Index">Products</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Users" asp-action="Index">Users</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="HomeUser" asp-action="Index">Home User</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Header-top start ------------------------------------------------------------------------------>
+        <div class="top">
+            <div class="container">
+                <div class="row">
+                    @if (Context.Session.GetString("username") != null)
+                    {
+                        <div class="col-md-3 col-sm-6 col-6 intop">
+                            <a "
+                               id=myInput>
+                                <i class="fas fa-unlock icon-top"></i> @Context.Session.GetString("username")
+                            </a>
+
+                        </div>
+
+                        <div class="col-md-3 col-sm-6 col-6 intop">
+                            <a href="/Login/Log_out"
+                               id=myInput>
+                                <i class="fas fa-pen-square icon-top"></i>
+                                Logout
+                            </a>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="col-md-3 col-sm-6 col-6 intop">
+                            <a href="/Login/Login"
+                               id=myInput>
+                                <i class="fas fa-unlock icon-top"></i>Sign
+                                In
+                            </a>
+                        </div>
+
+                        <div class="col-md-3 col-sm-6 col-6 intop">
+                            <a href="/Login/Register"
+                               id=myInput>
+                                <i class="fas fa-pen-square icon-top"></i>
+                                Sign Up
+                            </a>
+                        </div>
+                    }
+
+
+
+
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- Header-top end ------------------------------------------------------------------------------>
+        <!-- Header-bottom start ------------------------------------------------------------------------------>
+        <div class="bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 col-12 col-lg-4 col-sm-12 my-2">
+                        <form action="#" class="formes" method="POST">
+                            <input type="search" class="search" name="search" placeholder="Search here..." required>
+                            <button class="icon-search"><i class="fas fa-search"></i></button>
+                        </form>
+                    </div>
+                    <div class="col-md-6 col-12 col-lg-4 col-sm-12 my-2">
+                        <h1 class="logo">
+                            <a href="#">
+                                <span class="logoE">QK</span> Shoppy
+                                <i class="fas fa-shopping-bag logoBag"></i>
+                            </a>
+                        </h1>
+                    </div>
+                   
+                </div>
+            </div>
+
+        </div>
+        <!-- Header-bottom end ------------------------------------------------------------------------------>
+        <!-- Header-nav start ------------------------------------------------------------------------------>
+        <div class="nav">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9 mob">
+                        <nav class="navbar navbar-expand-lg navbar-dark">
+                            <button class="navbar-toggler span" type="button" data-toggle="collapse"
+                                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                                    aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                <ul class="navbar-nav mr-auto">
+                                    <li class="nav-item box-e active">
+                                        <a class="nav-link" href="index.html">
+                                            Home <span class="sr-only col-12">(current)</span>
+                                        </a>
+                                        <hr class="custom-underline">
+                                        </hr>
+                                    </li>
+
+                                    <li class="nav-item box-e active">
+                                        <a class="nav-link" href="about.html">
+                                            About <span class="sr-only">(current)</span>
+                                        </a>
+                                        <hr class="custom-underline">
+                                        </hr>
+                                    </li>
+                                    <li class="nav-item dropdown box-e active">
+                                        <a class="nav-link dropdown-toggle nav-link" href="leftMen.html"
+                                           id="navbarDropdown" role="button" data-toggle="dropdown"
+                                           aria-haspopup="true" aria-expanded="false">
+                                            Men's wear <span class="sr-only">(current)</span>
+                                        </a>
+                                        <hr class="custom-underline">
+                                        </hr>
+                                        <div class="dropdown-menu innermenu " aria-labelledby="navbarDropdown">
+                                            <div class="row indiv">
+                                                <div class="col-md-6 col-12">
+                                                    <img class="img-dropdown" src="img/top2.jpg" alt="">
+                                                </div>
+                                                <div class="col-md-3 col-12">
+                                                    <ul class="innerdiv">
+                                                        <li><a href="man.html">Clothing</a></li>
+                                                        <li><a href="man.html">Wallets</a></li>
+                                                        <li><a href="man.html">Footwear</a></li>
+                                                        <li><a href="man.html">Watches</a></li>
+                                                        <li><a href="man.html">Accessories</a></li>
+                                                        <li><a href="man.html">Bags</a></li>
+                                                        <li><a href="man.html">Caps & Hats</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-md-3 col-12">
+                                                    <ul class="innerdiv">
+                                                        <li><a href="man.html">Jewellery</a></li>
+                                                        <li><a href="man.html">Sunglasses</a></li>
+                                                        <li><a href="man.html">Perfumes</a></li>
+                                                        <li><a href="man.html">Beauty</a></li>
+                                                        <li><a href="man.html">Shirts</a></li>
+                                                        <li><a href="man.html">Sunglasses</a></li>
+                                                        <li><a href="man.html">Swimwear</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </li>
+                                    <li class="nav-item dropdown box-e active">
+                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            Women's wear <span class="sr-only">(current)</span>
+                                        </a>
+                                        <hr class="custom-underline">
+                                        </hr>
+                                        <div class="dropdown-menu innermenu " aria-labelledby="navbarDropdown">
+                                            <div class="row indiv">
+                                                <div class="col-md-3 col-12">
+                                                    <ul class="innerdiv">
+                                                        <li><a href="woman.html">Clothing</a></li>
+                                                        <li><a href="woman.html">Wallets</a></li>
+                                                        <li><a href="woman.html">Footwear</a></li>
+                                                        <li><a href="woman.html">Watches</a></li>
+                                                        <li><a href="woman.html">Accessories</a></li>
+                                                        <li><a href="woman.html">Bags</a></li>
+                                                        <li><a href="woman.html">Caps & Hats</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-md-3 col-12">
+                                                    <ul class="innerdiv">
+                                                        <li><a href="woman.html">Jewellery</a></li>
+                                                        <li><a href="woman.html">Sunglasses</a></li>
+                                                        <li><a href="woman.html">Perfumes</a></li>
+                                                        <li><a href="woman.html">Beauty</a></li>
+                                                        <li><a href="woman.html">Shirts</a></li>
+                                                        <li><a href="woman.html">Sunglasses</a></li>
+                                                        <li><a href="woman.html">Swimwear</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-md-6 col-12">
+                                                    <img class="img-dropdown" src="img/top1.jpg" alt="">
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </li>
+                                    <li class="nav-item dropdown box-e active">
+                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            Short Codes <span class="sr-only">(current)</span>
+                                        </a>
+                                        <hr class="custom-underline">
+                                        </hr>
+
+                                    </li>
+                                    <li class="nav-item box-e active">
+                                        <a class="nav-link" href="contact.html">
+                                            Contact <span class="sr-only">(current)</span>
+                                        </a>
+                                        <hr class="custom-underline">
+                                        </hr>
+                                    </li>
+                                </ul>
+
+                            </div>
+                        </nav>
+                    </div>
+                    <div class="col-md-3 mob">
+                        <div class="right-nav">
+                            <form action="#" class="form-inline my-2 my-lg-0 last">
+                                <input class="form-control mr-sm-2" type="hidden" name="cmd">
+                                <input class="form-control mr-sm-2" type="hidden" name="display">
+                                <button class="btn btn but-nav my-2 my-sm-0" id="openCart" onclick="showModal('modal')"
+                                        type="submit">
+                                    <i class="fas fa-cart-arrow-down"></i>
+                                </button>
+                            </form>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Header-nav end ------------------------------------------------------------------------------>
+    </header>
+  
+   
+    @RenderBody()
+   @*  <section id="arrivals">
+    <div class="container">
+        <main role="main" class="pb-3">
+           
+        </main>
+    </div>
+    </section> *@
+    
+
+   
+
+    <footer class="foot" data-name="footer">
+        <div class="row foot-section">
+            <div class="container" ">
+                <section class=" socialLinks col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12 float-left ">
+                    <h3><span>QK</span> Shoppy</h3>
+                    <p>
+                        Lorem ipsum quia dolor sit amet, consectetur, adipisci velit,
+                        sed quia non numquam eius modi tempora.
+                    </p>
+                 
+                </section>
+
+                <section class="ourInfo col-xl-3 col-lg-3 col-md-6 col-sm-6 col-12 float-left">
+                    <h4><span>OUR</span> INFORMATION</h4>
+                    <ul class="float-left pl-1">
+                        <li>
+                            <a href="/HomeUser/Index"> Home </a>
+                        </li>
+                       
+                    </ul>
+                </section>
+
+             
+
+              
+               
+                <section class="container" data-name="copyRight">
+                    <p class="copy-right">
+                        &copy 2024 QK shoppy. All rights reserved | Design by <a href="https://github.com/Thanhhoacam/">QK</a>
+                    </p>
+                </section>
+            </div>
+        </div>
+    </footer>
+
+    <div class="button"></div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+
+
+    <script src="~/js/v_script.js"></script>
+    <script src="~/js/elx.js"></script>
+
+    <script src="~/js/scroll.js"></script>
+
+    <script src="~/js/variables.js"></script>
+    <script src="~/js/database.js"></script>
+    <script src="~/js/myProducts.js"></script>
+
+    <script src="~/js/user.js"></script>
+    <script src="~/js/dom.js"></script>
+    <script src="~/js/database_sign_in_up.js"></script>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script>
+        var dom = null;
+        var db = null;
+        var user_r = null;
+
+        // ----------- DOMContentLoaded scripts and methods -------------//
+        document.addEventListener("DOMContentLoaded", function () {
+            // ------- sign in and sign up js ---------//
+            dom = new DOM();
+            db = new Database()
+
+            document.getElementById("sign_up").addEventListener("click", function (e) {
+                e.preventDefault();
+
+                user_r = new User(dom.getValue("inp_name"),
+                    dom.getValue("inp_email"),
+                    dom.getValue("inp_pass"),
+                    dom.getValue("inp_confirm_pass"));
+
+                // -------checking for registration ---------- //
+
+                let find = false;
+                if (dom.validate(user_r) == true) {
+                    for (let u in db.users()) {
+                        if (db.users()[u].email == user_r.email) {
+                            find = true;
+                            break;
+                        } else {
+                            find = false;
+                        }
+                    }
+                    if (find == true) {
+                        alert("this email is used try another email");
+                    } else if (find == false) {
+                        db.addingUser(user_r);
+                        alert("registration successful");
+                    }
+                }
+
+                // -------checking for registration ended ---------- //
+            });
+
+            // -------checking login ---------- //
+
+            document.getElementById("sign_in").addEventListener("click", function (e) {
+                e.preventDefault();
+                let log_name = dom.getValue("inp_sign_name");
+                let log_email = dom.getValue("inp_sign_email");
+
+                let check = false;
+                for (let l in db.users()) {
+                    if (db.users()[l].name_surname == log_name && db.users()[l].email == log_email) {
+                        check = true;
+                        break;
+                    } else {
+                        check = false;
+                    }
+                };
+                if (check == true) {
+                    alert("sign in is successful");
+                } else if (find = false) {
+                    alert("name or email is wrong");
+                }
+
+                // -------checking login ended---------- //
+            });
+
+            // -------- product methods --------- //
+            // productPlacement(mensWear, ".mensWearPlace");
+            // productPlacement(womensWear, ".womensWearPlace");
+            // productPlacement(bags, ".bagsPlace");
+            // productPlacement(footwear, ".footwearPlace");
+            // -------- product methods --------- //
+        });
+    </script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

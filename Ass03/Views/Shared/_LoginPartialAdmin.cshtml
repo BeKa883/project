@@ -1,0 +1,24 @@
+﻿
+
+
+
+
+<ul class="navbar-nav  d-none d-md-flex nav-login">
+    <li class="nav-item dropdown">
+        @if (Context.Session.GetString("username") == null)
+        {
+           
+        }
+        else
+        {
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+               data-bs-toggle="dropdown" aria-expanded="false">
+                Hello @Context.Session.GetString("username")
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="nav-link text-center" asp-controller="Login" asp-action="Log_out">Logout</a>
+            </ul>
+        }
+       
+    </li>
+</ul>

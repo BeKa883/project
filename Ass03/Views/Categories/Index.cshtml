@@ -1,0 +1,60 @@
+﻿@model IEnumerable<Ass03.Models.Category>
+
+@{
+    ViewData["Title"] = "Categories Management";
+}
+
+<h1>Categories Management</h1>
+
+
+<div> </div>
+<form asp-controller="Categories" asp-action="Index" class="form-inline">
+   
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm">
+            <p>
+                <a asp-action="Create" class="btn btn-success">Create New</a>
+
+            </p>
+        </div>
+        <div class="col-sm">
+            <input class="form-control mr-sm-2" type="text" name="SearchString" placeholder="Search" aria-label="Search">
+        </div>
+        <div class="col-sm">
+
+          
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            
+        </div>
+    </div>
+</div>
+</form>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Category Name</th>
+            <th scope="col">Action</th>
+           
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+
+                <th scope="row">@item.CategoryId</th>
+                <td>@item.CategoryName</td>
+                
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.CategoryId" class="btn btn-primary">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.CategoryId" class="btn btn-info">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.CategoryId" class="btn btn-danger">Delete</a>
+                </td>
+
+            
+        </tr>
+}
+    </tbody>
+</table>
